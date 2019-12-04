@@ -1,3 +1,4 @@
+import os
 import unittest
 
 from crawler.core.page_parser import PageParser
@@ -6,7 +7,8 @@ from crawler.core.page_parser import PageParser
 class TestPageParser(unittest.TestCase):
     def test_parse(self):
         url = 'https://baike.baidu.com/item/Python/407313'
-        f = open('downloader.html', 'r')
+        file_path = os.path.dirname(os.path.abspath(__file__))
+        f = open(file_path + '/downloader.html', 'r')
         content = f.read()
         new_urls, data = PageParser.parser(url, content)
         self.assertEqual(new_urls.pop(),
