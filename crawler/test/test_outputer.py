@@ -18,7 +18,8 @@ class TestOutputer(TestCase):
             'title': 'Python',
             'url': 'https://baike.baidu.com/item/Python/407313'
         }
-        outputer = Outputer([data])
+        outputer = Outputer()
+        outputer.collect_data(data)
         file_path = os.path.dirname(os.path.abspath(__file__))
         file_name = 'test.html'
         outputer.outputer_html(file_path, file_name)

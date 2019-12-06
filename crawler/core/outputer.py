@@ -1,10 +1,17 @@
+import os
+
+
 class Outputer(object):
-    def __init__(self, data):
-        if not data is None:
-            self.__data = data
+    def __init__(self):
+        self.__data = []
+
+    def collect_data(self, data):
+        if data is None:
+            return
+        self.__data.append(data)
 
     def outputer_html(self, path, file_name):
-        output_file = open(file_name, 'w')
+        output_file = open(os.path.join(path, file_name), 'w')
 
         output_file.write("<html>")
         output_file.write("<meta charset='utf-8'>")
